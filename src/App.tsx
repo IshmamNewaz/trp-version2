@@ -15,7 +15,7 @@ export default function App({ children }: { children: React.ReactNode }) {
           <ModeToggle />
         </div>
       <main>
-        <SidebarTrigger />
+        <SidebarTrigger  />
         {children}
         <DashboardCards />
       </main>

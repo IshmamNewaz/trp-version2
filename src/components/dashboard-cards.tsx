@@ -1,4 +1,5 @@
 // components/DashboardCards.tsx
+import { useSidebar } from "@/components/ui/sidebar"
 import {
   Card,
   CardHeader,
@@ -50,12 +51,17 @@ const cards = [
 ]
 
 export default function DashboardCards() {
+  const { state } = useSidebar()
+  const isCollapsed = state === "collapsed"
   return (
     // --- Body wrapper ------------------------------------------------------
     // left‑padding keeps content from sliding under the expanded sidebar
     <section className="p-1 lg:pl-5">
       {/* Responsive 1 / 2 / 3‑column grid */}
-      <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
+       <div
+        className={`grid gap-2 sm:grid-cols-2 ${isCollapsed ? "md:grid-cols-4" : "lg:grid-cols-3"} 
+          ${isCollapsed ? "lg:grid-cols-6" : "lg:grid-cols-5"} xl:grid-cols-6`}
+      >
         {cards.map((card) => (
           <Card key={card.title}>
             <CardHeader>
