@@ -3,6 +3,7 @@ import { AppSidebar } from "@/components/app-sidebar"
 import { ThemeProvider } from "@/components/theme-provider"
 // import Buttons from './components/Buttons';
 import { ModeToggle } from "@/components/mode-toggle"
+import DashboardCards from './components/dashboard-cards';
 export default function App({ children }: { children: React.ReactNode }) {
 
   return (
@@ -16,8 +17,10 @@ export default function App({ children }: { children: React.ReactNode }) {
       <main>
         <SidebarTrigger />
         {children}
+        <DashboardCards />
       </main>
     </SidebarProvider>
+
     </ThemeProvider>
     </>
   )
