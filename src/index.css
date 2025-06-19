@@ -118,3 +118,41 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Light theme (default, no class needed) */
+html {
+  background-color: #ffffff;
+  color: #111111;
+}
+
+/* Dark theme */
+html.dark {
+  background-color: #0f0f0f;
+  color: #ffffff;
+}
+
+/* Gray theme */
+html.gray {
+  background-color: #d4d4d4; /* You can customize this */
+  color: #111111;
+}
+
+/* Optional: button example */
+html.gray .btn {
+  background-color: #9ca3af; /* Tailwind's gray-400 */
+  color: #111111;
+}
+
+html.dark .btn {
+  background-color: #1f2937; /* Tailwind's gray-800 */
+  color: white;
+}
+
+html.light .btn {
+  background-color: #f3f4f6; /* Tailwind's gray-100 */
+  color: #111111;
+}
+
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

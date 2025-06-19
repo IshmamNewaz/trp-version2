@@ -1,25 +1,24 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
 import { ThemeProvider } from "@/components/theme-provider"
-import Buttons from './components/Buttons';
-
+// import Buttons from './components/Buttons';
+import { ModeToggle } from "@/components/mode-toggle"
 export default function App({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <Buttons />
+      <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">   
       <SidebarProvider>
       <AppSidebar />
+       <div className="absolute top-4 right-4 z-50">
+          <ModeToggle />
+        </div>
       <main>
         <SidebarTrigger />
-        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">    
-          
-          {children}
-        </ThemeProvider>
-        
+        {children}
       </main>
     </SidebarProvider>
-    
+    </ThemeProvider>
     </>
   )
 }
