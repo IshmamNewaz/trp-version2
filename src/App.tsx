@@ -5,8 +5,34 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { ModeToggle } from "@/components/mode-toggle"
 import DashboardCards from './components/dashboard-cards';
 import { ChartBarLabel } from "./components/chart-bar-label";
-export default function App({ children }: { children: React.ReactNode }) {
+import React, { useEffect, useState } from "react"
 
+//Table Section
+import { columns} from "./components/tables/columns"
+import { DataTable } from "./components/tables/data-table"
+import type {Payment} from "./components/tables/columns"
+
+// async function getData(): Promise<Payment[]> {
+//   // Fetch data from your API here.
+//   return [
+//      { id: "1", amount: 250, status: "pending",    email: "user1@example.com" },
+//     { id: "2", amount: 99,  status: "success",    email: "user2@example.com" },
+//     { id: "3", amount: 70,  status: "processing", email: "user3@example.com" },
+//     // ...
+//   ]
+// }
+//Table Section End
+export default function App({ children }: { children: React.ReactNode }) {
+   const [data, setData] = useState<Payment[]>([])
+
+  useEffect(() => {
+    // replace with real fetch
+    setData([
+      { id: "1", amount: 250, status: "pending",    email: "user1@example.com" },
+      { id: "2", amount: 99,  status: "success",    email: "user2@example.com" },
+      { id: "3", amount: 70,  status: "processing", email: "user3@example.com" },
+    ])
+  }, [])
   return (
     <>
       <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">   
@@ -20,9 +46,8 @@ export default function App({ children }: { children: React.ReactNode }) {
         {children}
         <DashboardCards />
         <div className="p-1 lg:pl-6">
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 ">
-            <ChartBarLabel />
-            <ChartBarLabel />
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 ">
+            <DataTable columns={columns} data={data} />
             <ChartBarLabel />
           </div>
       </div>
