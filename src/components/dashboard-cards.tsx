@@ -48,6 +48,7 @@ const cards = [
     body: "42 %",
     cta: "Open Metrics",
   },
+  
 ]
 
 export default function DashboardCards() {
@@ -56,7 +57,7 @@ export default function DashboardCards() {
   return (
     // --- Body wrapper ------------------------------------------------------
     // left‑padding keeps content from sliding under the expanded sidebar
-    <section className="p-1 lg:pl-5">
+    <section className="p-1 lg:pl-6">
       {/* Responsive 1 / 2 / 3‑column grid */}
        <div
         className={`grid gap-2 sm:grid-cols-2 ${isCollapsed ? "md:grid-cols-4" : "lg:grid-cols-3"} 
