@@ -28,6 +28,7 @@ import {
 //     // ...
 //   ]
 // }
+
 //Table Section End
 export default function App({ children }: { children: React.ReactNode }) {
    const [data, setData] = useState<Payment[]>([])
@@ -67,6 +68,8 @@ export default function App({ children }: { children: React.ReactNode }) {
               </CardContent>
             </Card>
             
+            <ChartBarLabel />
+            <ChartBarLabel />
             <ChartBarLabel />
             <DataTable columns={columns} data={data} />
  
