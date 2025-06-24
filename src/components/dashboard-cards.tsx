@@ -20,7 +20,7 @@ export default function DashboardCards() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    axios.get('#') // ✅ fixed typo
+    axios.get('http://192.168.0.121:8000/api/dashboard/dashboardstatus') // ✅ fixed typo
       .then(res => { 
         setDashboardData(res.data)
         setIsLoading(false)
