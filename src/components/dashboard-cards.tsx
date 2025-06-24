@@ -5,12 +5,12 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-  CardFooter,
+  // CardFooter,
 } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import React, { useEffect, useState } from 'react';
+// import { Button } from "@/components/ui/button"
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { description } from "./chart-bar-label";
+// import { description } from "./chart-bar-label";
 import { Skeleton } from "@/components/ui/skeleton"
 export default function DashboardCards() {
   const { state } = useSidebar()
@@ -20,7 +20,7 @@ export default function DashboardCards() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    axios.get('http://192.168.0.121:8000/api/dashboard/dashboardstatus') // ✅ fixed typo
+    axios.get('') // ✅ fixed typo
       .then(res => { 
         setDashboardData(res.data)
         setIsLoading(false)
